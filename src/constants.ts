@@ -43,6 +43,9 @@ export enum NetworkId {
   FANTOM = 250,
   FANTOM_TESTNET = 4002,
 
+  BINANCE = 56,
+  BINANCE_TESTNET = 97,
+
   Localhost = 1337,
 }
 
@@ -204,6 +207,67 @@ export const addresses: IAddresses = {
   [NetworkId.FANTOM]: {
     GOHM_ADDRESS: "0x91fa20244fb509e8289ca630e5db3e9166233fdc",
   },
+  [NetworkId.BINANCE_TESTNET]: {
+    DAI_ADDRESS: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C", // duplicate
+    OHM_ADDRESS: "0x3486F231b31ecaf26294f94350ca329012dccCe6",
+    STAKING_ADDRESS: "0x4B771D50941B66d77382fC7eaEc2C6cac0749751",
+    STAKING_HELPER_ADDRESS: "0xC65D30B9b70adc1AB31B974AC255B7BC93F91835",
+    // OLD_STAKING_ADDRESS: "0xb640AA9082ad720c60102489b806E665d67DCE32",
+    SOHM_ADDRESS: "0x50929894953Ae98f03216c601C543112a1A24FF0",
+    // WSOHM_ADDRESS: "0xe73384f11Bb748Aa0Bc20f7b02958DF573e6E2ad",
+    // OLD_SOHM_ADDRESS: "0x8Fc4167B0bdA22cb9890af2dB6cB1B818D6068AE",
+    MIGRATE_ADDRESS: "0xF67230Bc4Ae4586C0749D463453B8C07c24D878f",
+    DISTRIBUTOR_ADDRESS: "0xE03890E64F25D997c09950534Ef4B3c2516Fd5cb",
+    // BONDINGCALC_ADDRESS: "0xaDBE4FA3c2fcf36412D618AfCfC519C869400CEB",
+    // CIRCULATING_SUPPLY_ADDRESS: "0x5b0AA7903FD2EaA16F1462879B71c3cE2cFfE868",
+    TREASURY_ADDRESS: "0x3488Bb75621Ab42952a60bE82177421C832C0906",
+    // REDEEM_HELPER_ADDRESS: "0xBd35d8b2FDc2b720842DB372f5E419d39B24781f",
+    // PT_TOKEN_ADDRESS: "0x0a2d026bacc573a8b5a2b049f956bdf8e5256cfd", // 33T token address, taken from `ticket` function on PRIZE_STRATEGY_ADDRESS
+    // PT_PRIZE_POOL_ADDRESS: "0xf9081132864ed5e4980CFae83bDB122d86619281", // NEW
+    // PT_PRIZE_STRATEGY_ADDRESS: "0x2Df17EA8D6B68Ec444c9a698315AfB36425dac8b", // NEW
+    // GIVING_ADDRESS: "0x83D4FE6Ead62547758E094ee5BDb343ADbC2AeB9",
+    // MOCK_GIVING_ADDRESS: "0xfC93B6fC25D751ef1141EAB01C3f51Ecd484Ba05",
+    // MOCK_SOHM: "0x22C0b7Dc53a4caa95fEAbb05ea0729995a10D727",
+    MIGRATOR_ADDRESS: "0xF67230Bc4Ae4586C0749D463453B8C07c24D878f",
+    GOHM_ADDRESS: "0x866035Ecf96cd04cAe77C192C14E93104E0557C4",
+    OHM_V2: "0xd7B98050962ec7cC8D11a83446B3217257C754B7",
+    TREASURY_V2: "0x8dd0d811CEFb5CF41528C495E76638B2Ea39d2e6",
+    SOHM_V2: "0xebED323CEbe4FfF65F7D7612Ea04313F718E5A75",
+    STAKING_V2: "0x06984c3A9EB8e3A8df02A4C09770D5886185792D",
+    BOND_DEPOSITORY: "0x9810C5c97C57Ef3F23d9ee06813eF7FD51E13042",
+    DAO_TREASURY: "0xee1520f94f304e8d551cbf310fe214212e3ca34a",
+    BUSD: "0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee", // BUSD testnet token
+  },
+  [NetworkId.BINANCE]: {
+    DAI_ADDRESS: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C", // duplicate
+    OHM_ADDRESS: "0xC0b491daBf3709Ee5Eb79E603D73289Ca6060932",
+    STAKING_ADDRESS: "0xC5d3318C0d74a72cD7C55bdf844e24516796BaB2",
+    STAKING_HELPER_ADDRESS: "0xf73f23Bb0edCf4719b12ccEa8638355BF33604A1",
+    OLD_STAKING_ADDRESS: "0xb640AA9082ad720c60102489b806E665d67DCE32",
+    SOHM_ADDRESS: "0x1Fecda1dE7b6951B248C0B62CaeBD5BAbedc2084",
+    WSOHM_ADDRESS: "0xe73384f11Bb748Aa0Bc20f7b02958DF573e6E2ad",
+    OLD_SOHM_ADDRESS: "0x8Fc4167B0bdA22cb9890af2dB6cB1B818D6068AE",
+    MIGRATE_ADDRESS: "0x3BA7C6346b93DA485e97ba55aec28E8eDd3e33E2",
+    DISTRIBUTOR_ADDRESS: "0x0626D5aD2a230E05Fb94DF035Abbd97F2f839C3a",
+    BONDINGCALC_ADDRESS: "0xaDBE4FA3c2fcf36412D618AfCfC519C869400CEB",
+    CIRCULATING_SUPPLY_ADDRESS: "0x5b0AA7903FD2EaA16F1462879B71c3cE2cFfE868",
+    TREASURY_ADDRESS: "0x0d722D813601E48b7DAcb2DF9bae282cFd98c6E7",
+    REDEEM_HELPER_ADDRESS: "0xBd35d8b2FDc2b720842DB372f5E419d39B24781f",
+    PT_TOKEN_ADDRESS: "0x0a2d026bacc573a8b5a2b049f956bdf8e5256cfd", // 33T token address, taken from `ticket` function on PRIZE_STRATEGY_ADDRESS
+    PT_PRIZE_POOL_ADDRESS: "0xf9081132864ed5e4980CFae83bDB122d86619281", // NEW
+    PT_PRIZE_STRATEGY_ADDRESS: "0x2Df17EA8D6B68Ec444c9a698315AfB36425dac8b", // NEW
+    GIVING_ADDRESS: "0x83D4FE6Ead62547758E094ee5BDb343ADbC2AeB9",
+    MOCK_GIVING_ADDRESS: "0xfC93B6fC25D751ef1141EAB01C3f51Ecd484Ba05",
+    MOCK_SOHM: "0x22C0b7Dc53a4caa95fEAbb05ea0729995a10D727",
+    MIGRATOR_ADDRESS: "0x568c257BF4714864382b643fC8e6Ce5fbBcC6d3C",
+    GOHM_ADDRESS: "0xcF2D6893A1CB459fD6B48dC9C41c6110B968611E",
+    OHM_V2: "0xd7B98050962ec7cC8D11a83446B3217257C754B7",
+    TREASURY_V2: "0x8dd0d811CEFb5CF41528C495E76638B2Ea39d2e6",
+    SOHM_V2: "0xebED323CEbe4FfF65F7D7612Ea04313F718E5A75",
+    STAKING_V2: "0x06984c3A9EB8e3A8df02A4C09770D5886185792D",
+    BOND_DEPOSITORY: "0x9810C5c97C57Ef3F23d9ee06813eF7FD51E13042",
+    DAO_TREASURY: "0xee1520f94f304e8d551cbf310fe214212e3ca34a",
+  },
 };
 
 /**
@@ -348,6 +412,34 @@ export const NETWORKS: { [key: number]: INetwork } = {
     imageAltText: "Polygon Logo",
     uri: () => "", // NodeHelper.getMainnetURI(NetworkId.POLYGON_TESTNET),
   },
+  [NetworkId.BINANCE_TESTNET]: {
+    chainName: "BSC Testnet",
+    chainId: 97,
+    nativeCurrency: {
+      name: "Binance",
+      symbol: "BNB",
+      decimals: 18,
+    },
+    rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545"],
+    blockExplorerUrls: ["https://explorer.binance.org/smart-testnet"],
+    image: polygon,
+    imageAltText: "Polygon Logo",
+    uri: () => "https://data-seed-prebsc-1-s1.binance.org:8545",
+  },
+  [NetworkId.BINANCE]: {
+    chainName: "BSC Testnet",
+    chainId: 97,
+    nativeCurrency: {
+      name: "Binance",
+      symbol: "BNB",
+      decimals: 18,
+    },
+    rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545"],
+    blockExplorerUrls: ["https://explorer.binance.org/smart-testnet"],
+    image: polygon,
+    imageAltText: "Polygon Logo",
+    uri: () => NodeHelper.getMainnetURI(NetworkId.BINANCE),
+  },
 };
 
 // VIEWS FOR NETWORK is used to denote which paths should be viewable on each network
@@ -424,6 +516,26 @@ export const VIEWS_FOR_NETWORK: { [key: number]: IViewsForNetwork } = {
     bonds: false,
     network: true,
     bondsV2: false,
+  },
+  [NetworkId.BINANCE_TESTNET]: {
+    dashboard: true,
+    stake: true,
+    wrap: true,
+    zap: true,
+    threeTogether: true,
+    bonds: true,
+    network: true,
+    bondsV2: true,
+  },
+  [NetworkId.BINANCE]: {
+    dashboard: true,
+    stake: true,
+    wrap: true,
+    zap: true,
+    threeTogether: true,
+    bonds: true,
+    network: true,
+    bondsV2: true,
   },
 };
 
@@ -584,4 +696,25 @@ export const v2BondDetails: { [key: number]: { [key: string]: V2BondDetails } } 
     ["0x69b81152c5a8d35a67b32a4d3772795d96cae4da"]: OhmEthDetails,
     ["0x055475920a8c93cffb64d039a8205f7acc7722d3"]: OhmDaiDetails,
   },
+};
+
+// my binance testnet address
+const authority = "0xc65D1D232d30b5aEe2983f20A9EAB7ceFaCBFb01"; // authority
+const migrator = "0xF67230Bc4Ae4586C0749D463453B8C07c24D878f";
+const arsTech = "0x3486F231b31ecaf26294f94350ca329012dccCe6";
+const sArsTech = "0x50929894953Ae98f03216c601C543112a1A24FF0";
+const gAT = "0x866035Ecf96cd04cAe77C192C14E93104E0557C4";
+const TREASURY_ADDRESS = "0x3488Bb75621Ab42952a60bE82177421C832C0906";
+const staking = "0x4B771D50941B66d77382fC7eaEc2C6cac0749751";
+const distributor = "0xE03890E64F25D997c09950534Ef4B3c2516Fd5cb";
+
+const addressVerify = {
+  Migrator: "0xF67230Bc4Ae4586C0749D463453B8C07c24D878f",
+  Distributor: "0xE03890E64F25D997c09950534Ef4B3c2516Fd5cb",
+  StakingContract: "0x4B771D50941B66d77382fC7eaEc2C6cac0749751",
+  OlympusTreasury: "0x3488Bb75621Ab42952a60bE82177421C832C0906,",
+  gOHM: "0x866035Ecf96cd04cAe77C192C14E93104E0557C4",
+  sOhm: "0x50929894953Ae98f03216c601C543112a1A24FF0",
+  OHM: "0x3486F231b31ecaf26294f94350ca329012dccCe6",
+  OlympusAuthority: "0xc65D1D232d30b5aEe2983f20A9EAB7ceFaCBFb01",
 };

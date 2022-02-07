@@ -129,6 +129,10 @@ export class NodeHelper {
     return new StaticJsonRpcProvider(NodeHelper.getMainnetURI(NetworkId.MAINNET));
   };
 
+  static getTestnetStaticProvider = () => {
+    return new StaticJsonRpcProvider(NodeHelper.getMainnetURI(NetworkId.MAINNET));
+  };
+
   /**
    * this is a static mainnet only RPC Provider
    * should be used when querying AppSlice from other chains

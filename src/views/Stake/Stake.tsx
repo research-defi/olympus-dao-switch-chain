@@ -60,6 +60,7 @@ const Stake: React.FC = () => {
     return state.app.fiveDayRate;
   });
   const ohmBalance = useAppSelector(state => {
+    console.log({ ohm: state.account.balances.ohm });
     return state.account.balances && state.account.balances.ohm;
   });
   const sohmBalance = useAppSelector(state => {
@@ -225,12 +226,11 @@ const Stake: React.FC = () => {
     token => {
       if (token === "ohm") return stakeAllowance > 0;
       if (token === "sohm") return unstakeAllowance > 0;
-      if (token === "gohm") return directUnstakeAllowance > 0;
+      // if (token === "gohm") return directUnstakeAllowance > 0;
       return 0;
     },
-    [stakeAllowance, unstakeAllowance, directUnstakeAllowance],
+    [stakeAllowance, unstakeAllowance],
   );
-
   const isAllowanceDataLoading = (stakeAllowance == null && view === 0) || (unstakeAllowance == null && view === 1);
 
   const modalButton = [];
@@ -325,7 +325,6 @@ const Stake: React.FC = () => {
       }
     }
   }
-
   return (
     <div id="stake-view">
       <Zoom in={true} onEntered={() => setZoomed(true)}>
@@ -390,8 +389,7 @@ const Stake: React.FC = () => {
                     <Grid container className="stake-action-row">
                       {address && !isAllowanceDataLoading ? (
                         (!hasAllowance("ohm") && view === 0) ||
-                        (!hasAllowance("sohm") && view === 1 && !confirmation) ||
-                        (!hasAllowance("gohm") && view === 1 && confirmation) ? (
+                        (!hasAllowance("sohm") && view === 1 && !confirmation) ? (
                           <>
                             <Grid item xs={12} sm={8} className="stake-grid-item">
                               <Box mt={"10px"}>

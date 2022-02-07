@@ -23,6 +23,10 @@ export const initNetworkFunc = async ({ provider }: IGetCurrentNetwork) => {
         networkName = "Rinkeby Testnet";
         uri = NodeHelper.getMainnetURI(id);
         break;
+      case 97:
+        networkName = "BSC Testnet";
+        uri = "https://data-seed-prebsc-1-s1.binance.org:8545";
+        break;
       case 42161:
         networkName = "Arbitrum";
         uri = NodeHelper.getMainnetURI(id);
