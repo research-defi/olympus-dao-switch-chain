@@ -152,9 +152,6 @@ export const changeStake = createAsyncThunk(
       signer,
     ) as StakingHelper;
 
-    // const stakingV2 = OlympusStakingv2__factory.connect(addresses[networkID].STAKING_V2, signer);
-    // const st = await staking.stake("1", signer);
-    // console.log(st);
     let stakeTx;
     const uaData: IUAData = {
       address: address,
