@@ -15,9 +15,7 @@ import { Skeleton } from "@material-ui/lab";
 import { Icon, OHMTokenProps, OHMTokenStackProps, Token, TokenStack } from "@olympusdao/component-library";
 import { ReactElement, useState } from "react";
 import { ReactComponent as ArrowUpIcon } from "src/assets/icons/arrow-up.svg";
-import { addresses } from "src/constants";
 import { formatCurrency } from "src/helpers";
-import { dai, frax } from "src/helpers/AllBonds";
 import { useAppSelector, useWeb3Context } from "src/hooks";
 import useCurrentTheme from "src/hooks/useTheme";
 
@@ -121,7 +119,7 @@ const WalletTotalValue = () => {
   const tokens = useWallet(userAddress, networkId, providerInitialized);
   const isLoading = useAppSelector(s => s.account.loading || s.app.loadingMarketPrice || s.app.loading);
   const marketPrice = useAppSelector(s => s.app.marketPrice || 0);
-  const [currency, setCurrency] = useState<"USD" | "OHM">("USD");
+  const [currency, setCurrency] = useState<"USD" | "ENL">("USD");
 
   const walletTotalValueUSD = Object.values(tokens).reduce(
     (totalValue, token) => totalValue + parseFloat(token.totalBalance) * token.price,
@@ -129,10 +127,10 @@ const WalletTotalValue = () => {
   );
   const walletValue = {
     USD: walletTotalValueUSD,
-    OHM: walletTotalValueUSD / marketPrice,
+    ENL: walletTotalValueUSD / marketPrice,
   };
   return (
-    <Box onClick={() => setCurrency(currency === "USD" ? "OHM" : "USD")}>
+    <Box onClick={() => setCurrency(currency === "USD" ? "ENL" : "USD")}>
       <Typography style={{ lineHeight: 1.1, fontWeight: 600, fontSize: "0.975rem" }} color="textSecondary">
         MY WALLET
       </Typography>
@@ -176,36 +174,26 @@ function InitialWalletView({ onClose }: { onClose: () => void }) {
           }}
           style={{ gap: theme.spacing(1.5) }}
         >
-          <ExternalLink
-            color={currentTheme === "dark" ? "primary" : undefined}
-            href={`https://app.sushi.com/swap?inputCurrency=${dai.getAddressForReserve(networkId)}&outputCurrency=${
-              addresses[networkId].OHM_V2
-            }`}
-          >
-            <Typography>Get on Sushiswap</Typography>
+          <ExternalLink color={currentTheme === "dark" ? "primary" : undefined} href={`https://pcs.nhancv.com/#/swap`}>
+            <Typography>Get on Panccakeswap </Typography>
           </ExternalLink>
-          <ExternalLink
-            color={currentTheme === "dark" ? "primary" : undefined}
-            href={`https://app.uniswap.org/#/swap?inputCurrency=${frax.getAddressForReserve(
-              networkId,
-            )}&outputCurrency=${addresses[networkId].OHM_V2}`}
-          >
+          {/* <ExternalLink color={currentTheme === "dark" ? "primary" : undefined} href={`https://pcs.nhancv.com/#/swap`}>
             <Typography>Get on Uniswap</Typography>
-          </ExternalLink>
-          <Borrow
+          </ExternalLink> */}
+          {/* <Borrow
             href={`https://app.rari.capital/fuse/pool/18`}
             borrowOn="Rari Capital"
             borrowableTokensIcons={["wETH", "DAI", "FRAX"]}
             Icon1="wsOHM"
-          />
-          <Box sx={{ display: "flex", flexDirection: "column" }} style={{ gap: theme.spacing(1.5) }}>
+          /> */}
+          {/* <Box sx={{ display: "flex", flexDirection: "column" }} style={{ gap: theme.spacing(1.5) }}>
             <ExternalLink href={`https://dune.xyz/0xrusowsky/Olympus-Wallet-History`}>
               <Typography>Rusowsky's dashboard</Typography>
             </ExternalLink>
             <ExternalLink href={`https://dune.xyz/shadow/Olympus-(OHM)`}>
               <Typography>Shadow's dashboard</Typography>
             </ExternalLink>
-          </Box>
+          </Box> */}
         </Box>
 
         <Box sx={{ marginTop: "auto", marginX: "auto", padding: theme.spacing(2) }}>
