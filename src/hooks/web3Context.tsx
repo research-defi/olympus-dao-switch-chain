@@ -55,7 +55,6 @@ export const useAddress = () => {
   const { address } = useWeb3Context();
   return address;
 };
-
 const initModal = new Web3Modal({
   // network: "mainnet", // optional
   cacheProvider: true, // optional
@@ -70,18 +69,19 @@ const initModal = new Web3Modal({
           421611: NETWORKS[421611].uri(),
           43113: NETWORKS[43113].uri(),
           43114: NETWORKS[43114].uri(),
+          56: NETWORKS[56].uri(),
+          97: NETWORKS[97].uri(),
         },
       },
     },
   },
 });
-
 export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ children }) => {
   const [connected, setConnected] = useState(false);
   const [address, setAddress] = useState("");
   // NOTE (appleseed): loading eth mainnet as default rpc provider for a non-connected wallet
-  const [provider, setProvider] = useState<JsonRpcProvider>(NodeHelper.getMainnetStaticProvider());
-  const [networkId, setNetworkId] = useState(1);
+  const [provider, setProvider] = useState<JsonRpcProvider>(NodeHelper.getTestnetStaticProvider());
+  const [networkId, setNetworkId] = useState(97);
   const [networkName, setNetworkName] = useState("");
   const [providerUri, setProviderUri] = useState("");
   const [providerInitialized, setProviderInitialized] = useState(false);
@@ -142,14 +142,12 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
     // Eventually we'll be fine without doing network validations.
     setAddress(connectedAddress);
     const networkHash = await initNetworkFunc({ provider: connectedProvider });
-    console.log("networkHash", networkHash);
     setNetworkId(networkHash.networkId);
     setNetworkName(networkHash.networkName);
     setProviderUri(networkHash.uri);
     setProviderInitialized(networkHash.initialized);
     // Keep this at the bottom of the method, to ensure any repaints have the data we need
     setConnected(true);
-
     return connectedProvider;
   }, [provider, web3Modal, connected]);
 
@@ -190,6 +188,5 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
       providerInitialized,
     ],
   );
-
   return <Web3Context.Provider value={{ onChainProvider }}>{children}</Web3Context.Provider>;
 };

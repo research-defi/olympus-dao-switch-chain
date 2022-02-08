@@ -193,6 +193,8 @@ export class EnvHelper {
           URI_LIST = EnvHelper.env.REACT_APP_FANTOM_SELF_HOSTED_NODE.split(new RegExp(EnvHelper.whitespaceRegex));
         }
         break;
+      case NetworkId.BINANCE_TESTNET:
+        URI_LIST = ["https://data-seed-prebsc-1-s1.binance.org:8545/"];
     }
     return URI_LIST;
   }
