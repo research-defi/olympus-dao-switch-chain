@@ -144,7 +144,7 @@ export const changeStake = createAsyncThunk(
 
     const signer = provider.getSigner();
 
-    const staking = OlympusStaking__factory.connect(addresses[networkID].STAKING_HELPER_ADDRESS, signer);
+    const staking = OlympusStaking__factory.connect(addresses[networkID].STAKING_ADDRESS, signer);
 
     const stakingHelper = new ethers.Contract(
       addresses[networkID].STAKING_HELPER_ADDRESS as string,
@@ -153,7 +153,8 @@ export const changeStake = createAsyncThunk(
     ) as StakingHelper;
 
     // const stakingV2 = OlympusStakingv2__factory.connect(addresses[networkID].STAKING_V2, signer);
-
+    // const st = await staking.stake("1", signer);
+    // console.log(st);
     let stakeTx;
     const uaData: IUAData = {
       address: address,

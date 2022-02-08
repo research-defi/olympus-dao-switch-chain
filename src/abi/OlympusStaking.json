@@ -3,17 +3,12 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_ohm",
+        "name": "_AT",
         "type": "address"
       },
       {
         "internalType": "address",
-        "name": "_sOHM",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_gOHM",
+        "name": "_sAT",
         "type": "address"
       },
       {
@@ -28,13 +23,8 @@
       },
       {
         "internalType": "uint256",
-        "name": "_firstEpochTime",
+        "name": "_firstEpochBlock",
         "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "_authority",
-        "type": "address"
       }
     ],
     "stateMutability": "nonpayable",
@@ -45,80 +35,97 @@
     "inputs": [
       {
         "indexed": true,
-        "internalType": "contract IOlympusAuthority",
-        "name": "authority",
-        "type": "address"
-      }
-    ],
-    "name": "AuthorityUpdated",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
         "internalType": "address",
-        "name": "distributor",
-        "type": "address"
-      }
-    ],
-    "name": "DistributorSet",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "warmup",
-        "type": "uint256"
-      }
-    ],
-    "name": "WarmupSet",
-    "type": "event"
-  },
-  {
-    "inputs": [],
-    "name": "OHM",
-    "outputs": [
-      {
-        "internalType": "contract IERC20",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "authority",
-    "outputs": [
-      {
-        "internalType": "contract IOlympusAuthority",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_to",
+        "name": "previousOwner",
         "type": "address"
       },
       {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipPulled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipPushed",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "AT",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_epochLength",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_firstEpochNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_firstEpochBlock",
+        "type": "uint256"
+      }
+    ],
+    "name": "changeEpoch",
+    "outputs": [
+      {
         "internalType": "bool",
-        "name": "_rebasing",
+        "name": "",
         "type": "bool"
       }
     ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_recipient",
+        "type": "address"
+      }
+    ],
     "name": "claim",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "contractBalance",
     "outputs": [
       {
         "internalType": "uint256",
@@ -126,7 +133,7 @@
         "type": "uint256"
       }
     ],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -134,7 +141,7 @@
     "name": "distributor",
     "outputs": [
       {
-        "internalType": "contract IDistributor",
+        "internalType": "address",
         "name": "",
         "type": "address"
       }
@@ -158,7 +165,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "end",
+        "name": "endBlock",
         "type": "uint256"
       },
       {
@@ -173,27 +180,21 @@
   {
     "inputs": [],
     "name": "forfeit",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "gOHM",
-    "outputs": [
+    "inputs": [
       {
-        "internalType": "contract IgOHM",
-        "name": "",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
       }
     ],
-    "stateMutability": "view",
+    "name": "giveLockBonus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -211,23 +212,10 @@
   },
   {
     "inputs": [],
-    "name": "rebase",
+    "name": "locker",
     "outputs": [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "sOHM",
-    "outputs": [
-      {
-        "internalType": "contract IsOHM",
+        "internalType": "address",
         "name": "",
         "type": "address"
       }
@@ -237,26 +225,20 @@
   },
   {
     "inputs": [],
-    "name": "secondsToNextEpoch",
+    "name": "owner",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "address",
         "name": "",
-        "type": "uint256"
+        "type": "address"
       }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "contract IOlympusAuthority",
-        "name": "_newAuthority",
-        "type": "address"
-      }
-    ],
-    "name": "setAuthority",
+    "inputs": [],
+    "name": "pullManagement",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -265,11 +247,69 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_distributor",
+        "name": "newOwner_",
         "type": "address"
       }
     ],
-    "name": "setDistributor",
+    "name": "pushManagement",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "rebase",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceManagement",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "returnLockBonus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "sAT",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum ArsTechStaking.CONTRACTS",
+        "name": "_contract",
+        "type": "uint8"
+      },
+      {
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
+    ],
+    "name": "setContract",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -282,7 +322,7 @@
         "type": "uint256"
       }
     ],
-    "name": "setWarmupLength",
+    "name": "setWarmup",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -290,32 +330,22 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
         "internalType": "uint256",
         "name": "_amount",
         "type": "uint256"
       },
       {
-        "internalType": "bool",
-        "name": "_rebasing",
-        "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "_claim",
-        "type": "bool"
+        "internalType": "address",
+        "name": "_recipient",
+        "type": "address"
       }
     ],
     "name": "stake",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "bool",
         "name": "",
-        "type": "uint256"
+        "type": "bool"
       }
     ],
     "stateMutability": "nonpayable",
@@ -323,7 +353,14 @@
   },
   {
     "inputs": [],
-    "name": "supplyInWarmup",
+    "name": "toggleDepositLock",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalBonus",
     "outputs": [
       {
         "internalType": "uint256",
@@ -335,19 +372,7 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "toggleLock",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
       {
         "internalType": "uint256",
         "name": "_amount",
@@ -357,46 +382,24 @@
         "internalType": "bool",
         "name": "_trigger",
         "type": "bool"
-      },
-      {
-        "internalType": "bool",
-        "name": "_rebasing",
-        "type": "bool"
       }
     ],
     "name": "unstake",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "amount_",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "unwrap",
+    "inputs": [],
+    "name": "warmupContract",
     "outputs": [
       {
-        "internalType": "uint256",
-        "name": "sBalance_",
-        "type": "uint256"
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -444,30 +447,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "wrap",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "gBalance_",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
     "type": "function"
   }
 ]}
