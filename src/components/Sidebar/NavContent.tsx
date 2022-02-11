@@ -79,13 +79,14 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
       <Box className="dapp-sidebar-inner" display="flex" justifyContent="space-between" flexDirection="column">
         <div className="dapp-menu-top">
           <Box className="branding-header">
-            <Link href="https://olympusdao.finance" target="_blank">
-              <SvgIcon
+            <Link href="https://enallagi-dao.web.app" target="_blank">
+              {/* <SvgIcon
                 color="primary"
                 component={OlympusIcon}
                 viewBox="0 0 151 100"
                 style={{ minWidth: "151px", minHeight: "98px", width: "151px" }}
-              />
+              /> */}
+              <h1>Enallagi Dao</h1>
             </Link>
             <WalletAddressEns />
           </Box>
@@ -143,45 +144,45 @@ const NavContent: React.FC<NavContentProps> = ({ handleDrawerToggle }) => {
                     <NavItem to="/give" icon="give" label={t`Give`} chip={t`New`} />
                   )}
                   <NavItem to="/wrap" icon="wrap" label={t`Wrap`} />
-                  <NavItem
+                  {/* <NavItem
                     href={"https://synapseprotocol.com/?inputCurrency=gOHM&outputCurrency=gOHM&outputChain=43114"}
                     icon="bridge"
                     label={t`Bridge`}
-                  />
+                  /> */}
                   <Box className="menu-divider">
                     <Divider />
                   </Box>
-                  <NavItem href="https://pro.olympusdao.finance/" icon="olympus" label={t`Olympus Pro`} />
+                  {/* <NavItem href="https://pro.olympusdao.finance/" icon="olympus" label={t`Olympus Pro`} /> */}
                   {/* <NavItem to="/33-together" icon="33-together" label={t`3,3 Together`} /> */}
-                  <Box className="menu-divider">
+                  {/* <Box className="menu-divider">
                     <Divider />
-                  </Box>
+                  </Box> */}
                 </>
               ) : (
                 <>
                   <NavItem to="/wrap" icon="wrap" label={t`Wrap`} />
-                  <NavItem
+                  {/* <NavItem
                     href="https://synapseprotocol.com/?inputCurrency=gOHM&outputCurrency=gOHM&outputChain=43114"
                     icon="bridge"
                     label={t`Bridge`}
-                  />
+                  /> */}
                 </>
               )}
               {}
-              {Object.keys(externalUrls).map((link: any, i: number) => (
+              {/* {Object.keys(externalUrls).map((link: any, i: number) => (
                 <NavItem
                   key={i}
                   href={`${externalUrls[link].url}`}
                   icon={externalUrls[link].icon as any}
                   label={externalUrls[link].title as any}
                 />
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
-        <Box className="dapp-menu-social" display="flex" justifyContent="space-between" flexDirection="column">
+        {/* <Box className="dapp-menu-social" display="flex" justifyContent="space-between" flexDirection="column">
           <Social />
-        </Box>
+        </Box> */}
       </Box>
     </Paper>
   );

@@ -733,3 +733,12 @@ const addressVerifyV2 = {
   Enallagi: "0x09b60e530903e7f22A2C024Dbe39e659B3c4BFCD",
   EnallagiAuthority: "0x5f535dFFdf20dfd3D1cb90B02fC298D01dE84948",
 };
+
+const klaytnNetwrk = {
+  authority: "0xaf539bf974a0e7022fc92bbaeaf8bea1e11f2de4",
+  Enallagi: "0xe153f28caf984e7efacbfd1ce0ebe4a03dfc09f7",
+  sEnallagi: "0x8cdf075fe907017dafe474a1782cb1fc16df7cfa",
+  TREASURY_ADDRESS: "0x938a9153b7eb7e7b8a0ceb47f7730e9b618612ff",
+  staking: "0x021c302ee084db862d41a2845d6723e47744b3bd",
+  distributor: "0x7bac686b17860c15a17b854926791fcc129232bd",
+};
